@@ -3,17 +3,36 @@ import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import axios from 'axios'
 import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+import Users from '../components/users/Users.vue'
 
 Vue.use(VueRouter)
 
-// 引入axios，配置默认axios参数，将axios挂载在Vue的原型对象上以全局使用
+// 引入axios，配置默认axios基准URL
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+// 添加请求拦截器为请求添加token，以获得需要登录状态权限的API
+axios.interceptors.request.use(config => {
+  // console.log(config)
+  config.headers.Authorization = sessionStorage.getItem('token')
+  // 一定要返回，否则请求发送不出
+  return config
+})
+// 将axios挂载在Vue的原型对象上以全局使用
 Vue.prototype.$http = axios
 
 const routes = [
   { path: '/', redirect: '/login' },
   { path: '/login', component: Login },
-  { path: '/home', component: Home }
+  {
+    path: '/home',
+    component: Home,
+    // 访问Home组件，重定向到welcome默认页
+    redirect: '/welcome',
+    children: [
+      { path: '/welcome', component: Welcome },
+      { path: '/users', component: Users }
+    ]
+  }
 ]
 
 const router = new VueRouter({
