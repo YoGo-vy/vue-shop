@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container class="home_container">
     <!-- 头部区域 -->
     <el-header>
       <div class="logo">
@@ -8,7 +8,7 @@
       </div>
       <el-button @click="logout" type="info" round>退出</el-button>
     </el-header>
-    <el-container class="content">
+    <el-container class="main_container">
 
       <!-- 侧边栏aside -->
       <el-aside :width="isCollapse? '64px':'200px'">
@@ -51,6 +51,7 @@
         <router-view></router-view>
       </el-main>
     </el-container>
+
   </el-container>
 </template>
 
@@ -103,8 +104,11 @@ export default {
 </script>
 
 <style lang="less" scope>
-.el-container {
+.home_container {
   height: 100%;
+}
+.main_container {
+  height: 90%;
 }
 .el-header {
   display: flex;

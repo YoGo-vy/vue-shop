@@ -23,7 +23,11 @@ import {
   Tooltip,
   Pagination,
   Dialog,
-  MessageBox
+  MessageBox,
+  Tag,
+  Tree,
+  Select,
+  Option
 } from 'element-ui'
 
 Vue.use(Button)
@@ -48,9 +52,13 @@ Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Tag)
+Vue.use(Tree)
+Vue.use(Select)
+Vue.use(Option)
 
 // 全局挂载element-ui的message（方法）
 Vue.prototype.$message = message
 
 // 为Vue全局挂载的方式挂载【MessageBox组件中的confirm函数】
-Vue.prototype.$comfirm = MessageBox.confirm
+Vue.prototype.$confirm = MessageBox.confirm
