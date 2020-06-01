@@ -7,7 +7,11 @@ import Welcome from '../components/Welcome.vue'
 import Users from '../components/users/Users.vue'
 import Rights from '../components/powers/rights.vue'
 import Rules from '../components/powers/roles.vue'
+import Categories from '../components/goods/categories'
+// 引入vue-table-with-tree-grid
+import TreeTable from 'vue-table-with-tree-grid'
 
+// 添加VueRouter插件
 Vue.use(VueRouter)
 
 // 引入axios，配置默认axios基准URL
@@ -22,6 +26,9 @@ axios.interceptors.request.use(config => {
 // 将axios挂载在Vue的原型对象上以全局使用
 Vue.prototype.$http = axios
 
+// 添加TreeTable插件为组件
+Vue.component('tree-table', TreeTable)
+
 const routes = [
   { path: '/', redirect: '/login' },
   { path: '/login', component: Login },
@@ -34,7 +41,8 @@ const routes = [
       { path: '/welcome', component: Welcome },
       { path: '/users', component: Users },
       { path: '/rights', component: Rights },
-      { path: '/roles', component: Rules }
+      { path: '/roles', component: Rules },
+      { path: '/categories', component: Categories }
     ]
   }
 ]

@@ -17,4 +17,12 @@ body,
 .el-table {
     margin-top: 20px;
     font-size: 12px;
-  }
+}
+/* 
+在ElementUI的2.13.0版本中直接引入级联选择框cascader在浏览器中显示异常，
+数据过多时级联选择框弹出来的panel高度占满浏览器，
+global.css中添加.el-cascader-panel{ height: xxxpx }即可解决此问题。
+ */
+.el-cascader-panel {
+    height: 360px;
+}
