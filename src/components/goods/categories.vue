@@ -46,7 +46,7 @@
 
                 <!-- 操作 -->
                 <template slot="handle">
-                    <div>
+                    <div class="btns">
                         <el-button size="mini" type="primary" icon="el-icon-setting">编辑</el-button>
                         <el-button size="mini" type="danger" icon="el-icon-delete">删除</el-button>
                     </div>
@@ -131,7 +131,8 @@ export default {
       {
         label: '操作',
         type: 'template',
-        template: 'handle'
+        template: 'handle',
+        width: 200
       }],
 
       //  商品分类dialog
@@ -252,5 +253,8 @@ global.css中添加.el-cascader-panel{ height: xxxpx }即可解决此问题。
 
 .el-cascader {
     width: 100%;
+}
+.btns {
+  width: 200px;
 }
 </style>
