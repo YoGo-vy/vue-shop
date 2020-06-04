@@ -55,7 +55,7 @@
       </el-table>
       <!-- 分页 -->
       <el-pagination
-        @size-change="handleSizeChange"
+         @size-change="handleSizeChange"
         :page-sizes="[1, 3, 5]"
         :page-size="queryInfo.pagesize"
         @current-change="handleCurrentChange"

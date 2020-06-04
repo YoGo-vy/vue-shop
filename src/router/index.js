@@ -11,6 +11,9 @@ import Categories from '../components/goods/categories'
 // 引入vue-table-with-tree-grid
 import TreeTable from 'vue-table-with-tree-grid'
 import Params from '../components/goods/params'
+import GoodsList from '../components/goods/goodslist.vue'
+import AddGoods from '../components/goods/addgoods'
+
 // 添加VueRouter插件
 Vue.use(VueRouter)
 
@@ -43,7 +46,9 @@ const routes = [
       { path: '/rights', component: Rights },
       { path: '/roles', component: Rules },
       { path: '/categories', component: Categories },
-      { path: '/params', component: Params }
+      { path: '/params', component: Params },
+      { path: '/goods', component: GoodsList },
+      { path: '/goods/addgoods', component: AddGoods }
     ]
   }
 ]

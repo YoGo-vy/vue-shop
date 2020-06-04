@@ -62,7 +62,9 @@
                           </el-input>
                           <el-button v-else class="button-new-tag"
                            size="small"
-                           @click="showInput(slotprops.row)">+ New Tag</el-button>
+                           @click="showInput(slotprops.row)">
+                           + New Tag
+                           </el-button>
                         </div>
                       </template>
                       </el-table-column>
@@ -295,9 +297,10 @@ export default {
       获取参数列表后，对每一项参数进行按需处理
           1.attr_vals进行处理，改为数组，以渲染展开行
           2.为每一项参数添加标志位，控制该行参数展开行的tag和input切换
+          3.解决空字符串切割后数组长度为1问题，使用三元表达式优化，如果为空，返回空数组
       */
       res.data.forEach(item => {
-        item.attr_vals = item.attr_vals.split(' ')
+        item.attr_vals = item.attr_vals ? item.attr_vals.split(' ') : []
         item.inputVisible = false
         item.inputValue = ''
       })
