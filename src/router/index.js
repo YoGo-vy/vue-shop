@@ -14,6 +14,7 @@ import Params from '../components/goods/params'
 import GoodsList from '../components/goods/goodslist.vue'
 import AddGoods from '../components/goods/addgoods'
 import Order from '../components/order/orderlist.vue'
+import Reports from '../components/report/reports.vue'
 
 // 添加VueRouter插件
 Vue.use(VueRouter)
@@ -50,7 +51,8 @@ const routes = [
       { path: '/params', component: Params },
       { path: '/goods', component: GoodsList },
       { path: '/goods/addgoods', component: AddGoods },
-      { path: '/orders', component: Order }
+      { path: '/orders', component: Order },
+      { path: '/reports', component: Reports }
     ]
   }
 ]
