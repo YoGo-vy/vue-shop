@@ -13,6 +13,7 @@ import TreeTable from 'vue-table-with-tree-grid'
 import Params from '../components/goods/params'
 import GoodsList from '../components/goods/goodslist.vue'
 import AddGoods from '../components/goods/addgoods'
+import Order from '../components/order/orderlist.vue'
 
 // 添加VueRouter插件
 Vue.use(VueRouter)
@@ -48,7 +49,8 @@ const routes = [
       { path: '/categories', component: Categories },
       { path: '/params', component: Params },
       { path: '/goods', component: GoodsList },
-      { path: '/goods/addgoods', component: AddGoods }
+      { path: '/goods/addgoods', component: AddGoods },
+      { path: '/orders', component: Order }
     ]
   }
 ]

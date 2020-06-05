@@ -361,6 +361,12 @@ export default {
 
     // 点击按钮删除参数
     async deleteAttr(attrs) {
+      const result = await this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).catch((error) => { return error })
+      if (result !== 'confirm') return this.$message.info('已取消删除')
       const { data: res } = await this.$http.delete(`categories/${this.cateId}/attributes/${attrs.attr_id}`)
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.$message.success(res.meta.msg)
