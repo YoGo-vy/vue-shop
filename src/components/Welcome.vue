@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="home">首页</div>
-    <div class="home info">一个很吊的网站</div>
+    <div class="home info">基于vue的电商后台管理</div>
     <el-card>
       <img src="../assets/logo.png" alt="" class="home_logo">
     </el-card>
