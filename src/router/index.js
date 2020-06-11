@@ -16,18 +16,33 @@ import AddGoods from '../components/goods/addgoods'
 import Order from '../components/order/orderlist.vue'
 import Reports from '../components/report/reports.vue'
 
+// 导入nprogress进度条插件，和css样式表：在请求拦截器，响应拦截器中使用
+import Nprogress from 'nprogress'
+/* externals优化项目大小
+import 'nprogress/nprogress.css'
+ */
 // 添加VueRouter插件
 Vue.use(VueRouter)
 
 // 引入axios，配置默认axios基准URL
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+
 // 添加请求拦截器为请求添加token，以获得需要登录状态权限的API
 axios.interceptors.request.use(config => {
   // console.log(config)
+  // 使用nprogress进度条组件
+  Nprogress.start()
   config.headers.Authorization = sessionStorage.getItem('token')
   // 一定要返回，否则请求发送不出
   return config
 })
+
+// 添加响应拦截器，在响应完成后结束nprogress进度条
+axios.interceptors.response.use((res) => {
+  Nprogress.done()
+  return res
+})
+
 // 将axios挂载在Vue的原型对象上以全局使用
 Vue.prototype.$http = axios
 
