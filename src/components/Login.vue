@@ -125,6 +125,7 @@ export default {
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: center;
+    width: 100%;
   }
 }
 </style>
