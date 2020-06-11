@@ -120,11 +120,12 @@ export default {
   width: 100%;
   padding: 0 25px 15px 15px;
   box-sizing: border-box;
-  .btns {
+}
+ .btns {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: center;
+    width: 100%;
   }
-}
 </style>
